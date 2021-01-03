@@ -63,6 +63,7 @@ author:
   name   : "Rémon Hobbel"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "IT-Support Engineer at Broekman Logistics and studying ICT-Service Management at Hogeschool Rotterdam "
+  location : "Middelharnis, Netherlands"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
