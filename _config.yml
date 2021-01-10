@@ -64,6 +64,15 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+  - jekyll-external-links
+
+external_links:
+  selector: 'main a'
+  ignored_selectors:
+    - a[href*=travis]
+    - a[href*=coverity]
+    - a[href*=codecov]
+  marker_html: "<span class='ico-ext'><i class='fas fa-external-link-square-alt'></i></span>"
 
 author:
   name   : "Rémon Hobbel"
