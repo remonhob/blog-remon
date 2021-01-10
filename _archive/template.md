@@ -1,0 +1,37 @@
+---
+title: "Create Base64 key with Powershell"
+date: 2021-01-03T15:34:30-04:00
+toc: true
+toc_label: "Table of contents"
+categories:
+  - blog
+tags:
+  - Powershell
+  - Development
+  
+---
+
+Today I had to convert an username and application password to Base64 format in order to authenticate to an API endpoint. However, it's not secure to generate an API key using an online website. I cannot trust that 3rd party website and I cannot know what happens to the data stored about my IP address associated with that password. 
+
+Fortunately, Powershell allows a quick method to convert a username and password to Base64 completely offline from your own workstation.
+
+# Create Base64 String with PowerShell
+First create a username and password pair. After that we can convert the $pair variable to a Base64 String using the 
+
+<a href="https://docs.microsoft.com/en-us/dotnet/api/system.convert.tobase64string?view=net-5.0">Microsoft System.Convert method</a>
+
+```c#
+$user = 'user'
+$pass = 'password'
+$pair = "$($user):$($pass)"
+
+# Encode API Credentials
+$encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($pair))
+$basicAuthValue = "Basic $encodedCreds"
+
+Write-Host $basicAuthValue
+```
+Output:
+```c#
+Basic dXNlcjpwYXNzd29yZA==
+```
